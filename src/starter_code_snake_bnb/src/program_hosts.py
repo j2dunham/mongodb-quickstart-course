@@ -50,7 +50,11 @@ def create_account():
     name = input("What is your name? ")
     email = input("What is your email? ")
 
-    state.active_account = svc.create_account(name, email)
+    if (svc.find_account_by_email(email)):
+        print(f"This email ({email}) already exists.. ")
+        return
+    else:
+        state.active_account = svc.create_account(name, email)
 
     print(" -------- NOT IMPLEMENTED -------- ")
 
