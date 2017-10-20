@@ -1,5 +1,6 @@
 import datetime
 import mongoengine
+from data.booking import Booking
 
 class Cage(mongoengine.Document):
     registered_date = mongoengine.DateTimeField(default=datetime.datetime.now)
@@ -13,6 +14,6 @@ class Cage(mongoengine.Document):
 
     bookings = mongoengine.EmbeddedDocumentListField(Booking)
     meta = {
-        'db_alias' : 'core'
+        'db_alias' : 'core',
         'collection' : 'cages'
     }
